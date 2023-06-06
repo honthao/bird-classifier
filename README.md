@@ -89,15 +89,31 @@ idx_to_name = {k: classes[v] for k,v in idx_to_class.items()}
 
 ## Results
 
-Results here.....
+<p float="middle">
+  <img src="/lr_0.1_graph.PNG" width=50% height=50% title="Learning rate = 0.1" />
+  <img src="/lr_0.01_graph.PNG" width=50% height=50% title="Learning rate = 0.01" /> 
+  <img src="/lr_0.001_graph.PNG" width=50% height=50% title="Learning rate = 0.001" />
+</p>
+
+* All three graphs were trained for 15 epochs and each took approximately 2h15m to complete.
+* Here’s a table showing their performance after 15 epochs:
+![Learning Rates Rerformance](/Learning_Rates_Performance.PNG)
+
+* The graph with lr = 0.1 shows divergent behaviors for the testing loss and is the least stable with the highest testing loss of 2.899 compared to the other two graphs. This shows that the learning rate is a bit too high causing the gradient descent to make big steps and can overshoot the optimum, seeing how the testing losses bounce around in the graph. 
+* The graph with lr = 0.01 has the lowest training loss of 0.070 and lowest testing loss of 1.070. But while the training loss continues to decrease, the testing loss doesn’t show much improvement after some iterations. The increasing gap between training and testing loss shows that the model might be overfit.
+* The graph with lr = 0.001 has the highest training loss of 0.976, showing that the training progresses slower compared to the other two due to its small learning rate making small adjustments to the model’s weights. 
 
 ## Discussion
 
-What problems did you encounter?
+In terms of learning rates, the results above show that 0.01 performs the best for 15 epochs with an accuracy of 72%. Even though 0.001 shows the best convergence, the gradient descent is slower and it would take more epochs to reach the optimum/improve its accuracy. Instead of increasing the number of epochs and have longer training runtime (high cost) to improve the accuracy of 0.001, I think it would be better to use regularization techniques like dropout or data augmentation to prevent overfitting when lr = 0.01 and increase its accuracy.
+
+## Reflection
+
+Problems I encounter?
 * One of the problems that I encountered was the runtime of my model. Because it took pretty long to run even on GPU, it was time-consuming to experiment with different hyperparameters or just tweak the model a bit.
 
-Are there next steps you would take if you kept working on the project?
+Next steps I would take?
 * If I kept working on this project, I would further tune other hyperparameters that I didn't get to due to time and GPU limits. I would also like to try out different regularization techniques and examine which one has the strongest impact on the model's performance.
 
-How does your approach differ from others? Was that beneficial?
+How my approach differ from others? Was that beneficial?
 * I don't know how others approach this problem, but I think my approach probably differs because besides from tuning the hyperparameters, I also mess around with the transformations when loading images. And this has a huge improvement on the model's accuracy as mentioned above.
