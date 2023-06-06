@@ -89,7 +89,7 @@ idx_to_name = {k: classes[v] for k,v in idx_to_class.items()}
 
 ## Results
 
-### Learning Rates Performance
+### Learning Rates
 
 | LR = 0.1                  | LR = 0.01                   | LR = 0.001                    |
 | ------------------------- | --------------------------- | ----------------------------- |
@@ -97,7 +97,8 @@ idx_to_name = {k: classes[v] for k,v in idx_to_class.items()}
 
 * All three graphs were trained for 15 epochs and each took approximately 2h15m to complete.
 * Here’s a table showing their performance after 15 epochs:
-![Learning Rates Rerformance](/Learning_Rates_Performance.PNG)
+
+<img src="/Learning_Rates_Performance.PNG" width=50% height=50%>
 
 * The graph with lr = 0.1 shows divergent behaviors for the testing loss and is the least stable with the highest testing loss of 2.899 compared to the other two graphs. This shows that the learning rate is a bit too high causing the gradient descent to make big steps and can overshoot the optimum, seeing how the testing losses bounce around in the graph. 
 * The graph with lr = 0.01 has the lowest training loss of 0.070 and lowest testing loss of 1.070. But while the training loss continues to decrease, the testing loss doesn’t show much improvement after some iterations. The increasing gap between training and testing loss shows that the model might be overfit.
