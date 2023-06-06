@@ -16,11 +16,8 @@ This project builds upon the [iPynb - Transfer Learning to Birds](https://colab.
 
 ## Approach
 
-```
-cd existing_repo
-git remote add origin https://gitlab.cs.washington.edu/uwthao07/cse-455-final-project.git
-git branch -M main
-git push -uf origin main
+```python
+import os
 ```
 
 ## Results
