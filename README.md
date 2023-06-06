@@ -20,10 +20,8 @@ Using the class tutorial mentioned above as a starting point:
 1. Change the pretrained model
     * The model used in the tutorial was ResNet18, achieving _% of accuracy
     * The model I used is ResNet50, achieving _% of accuracy
-
 2. Tweak data transformations before training
-
-3. Experiment with different number of epochs and learning rate
+3. Experiment with different number of epochs and learning rates
 
 ### Data Preparation
 
