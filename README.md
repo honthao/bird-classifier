@@ -31,7 +31,7 @@ Changes to data transformations:
 * Normalized the images with ImageNet mean and standard deviation. This helps increasing the accuracy to 73.1%
 * Resize the images to 224x244. This helps increase the accuracy to 81.2%
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 import os
