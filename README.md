@@ -84,6 +84,7 @@ idx_to_name = {k: classes[v] for k,v in idx_to_class.items()}
 ## Results
 
 Results here.....
+![Graph](/graph.PNG)
 
 ## Discussion
 
