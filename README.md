@@ -20,12 +20,15 @@ Using the class tutorial mentioned above as a starting point:
 1. Change the pretrained model
     * The model used in the tutorial was ResNet18, achieving _% of accuracy
     * The model I used is ResNet50, achieving _% of accuracy
+
 2. Tweak data transformations before training
+
 3. Experiment with different number of epochs and learning rate
 
 ### Data Preparation
 
 I worked in the Kaggle Notebook environment, so I modified the code to reflect this (i.e. where I load in the data).
+
 Changes to data transformations:
 * Normalized the images with ImageNet mean and standard deviation. This helps increasing the accuracy to 73.1%
 * Resize the images to 224x244. This helps increase the accuracy to 81.2%
