@@ -90,9 +90,9 @@ idx_to_name = {k: classes[v] for k,v in idx_to_class.items()}
 ## Results
 
 <p float="middle">
-  <img src="/lr_0.1_graph.PNG" width=50% height=50% title="Learning rate = 0.1" />
-  <img src="/lr_0.01_graph.PNG" width=50% height=50% title="Learning rate = 0.01" /> 
-  <img src="/lr_0.001_graph.PNG" width=50% height=50% title="Learning rate = 0.001" />
+  <img src="/lr_0.1_graph.PNG" width=30% height=30% alt="LR = 0.1" />
+  <img src="/lr_0.01_graph.PNG" width=30% height=30% alt="LR = 0.01" /> 
+  <img src="/lr_0.001_graph.PNG" width=30% height=30% alt="LR = 0.001" />
 </p>
 
 * All three graphs were trained for 15 epochs and each took approximately 2h15m to complete.
