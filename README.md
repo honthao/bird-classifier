@@ -16,9 +16,69 @@ This project builds upon the [iPynb - Transfer Learning to Birds](https://colab.
 
 ## Approach
 
+Using the class tutorial mentioned above as a starting point:
+1. Change the pretrained model
+    * The model used in the tutorial was ResNet18, achieving _% of accuracy
+    * The model I used is ResNet50, achieving _% of accuracy
+2. Tweak data transformations before training
+3. Experiment with different number of epochs and learning rate
+
+### Data Preparation
+
+I worked in the Kaggle Notebook environment, so I modified the code to reflect this (i.e. where I load in the data).
+Changes to data transformations:
+* Normalized the images with ImageNet mean and standard deviation. This helps increasing the accuracy to 73.1%
+* Resize the images to 224x244. This helps increase the accuracy to 81.2%
+
 ```python
+import numpy as np
+import matplotlib.pyplot as plt
 import os
+
+import torch
+import torchvision
+import torchvision.transforms as transforms
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+
+TRAIN_PATH = '/kaggle/input/birds23sp/birds/train'
+TEST_PATH = '/kaggle/input/birds23sp/birds/test'
+CHECKPOINTS = '/kaggle/working/'
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+train_transforms = transforms.Compose([
+    transforms.Resize(224),
+    transforms.RandomCrop(224, padding=8, padding_mode='edge'),
+    transforms.RandomHorizontalFlip(),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])
+])
+
+test_transforms = transforms.Compose([
+    transforms.Resize(224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])
+])
+
+trainset = torchvision.datasets.ImageFolder(root=TRAIN_PATH, transform=train_transforms)
+testset = torchvision.datasets.ImageFolder(root=TEST_PATH, transform=test_transforms)
+
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=2)
+testloader = torch.utils.data.DataLoader(testset, batch_size=1, shuffle=False, num_workers=2)
+
+classes = open("/kaggle/input/birds23sp/birds/names.txt").read().strip().split("\n")
+class_to_idx = trainset.class_to_idx
+idx_to_class = {int(v): int(k) for k, v in class_to_idx.items()}
+idx_to_name = {k: classes[v] for k,v in idx_to_class.items()}
 ```
+
+### Train and Predict Functions
+
+### Load Pretrained Model
+
+### Experiments
 
 ## Results
 
