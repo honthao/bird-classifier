@@ -2,6 +2,12 @@
 
 
 
+## Project Walkthrough & Codes
+
+* [Project Video Walkthrough]()
+* [Code]() for evaluating the real test dataset and outputing the prediction csv file
+* [Code]() for calculating train & test loss (Train/Validation Split)
+
 ## Problem Description
 
 Train a network model to classify/predict bird species for [the bird classification Kaggle challenge](https://www.kaggle.com/competitions/birds23sp)
@@ -20,8 +26,8 @@ Using the class tutorial mentioned above as a starting point:
 1. Change the pretrained model
     * The model used in the tutorial was ResNet18, achieving _% of accuracy
     * The model I used is ResNet50, achieving _% of accuracy
-2. Tweak data transformations before training
-3. Experiment with different number of epochs and learning rates
+2. Tweak data transformations
+3. Tuning hyperparameters
 
 ### Data Preparation
 
@@ -88,8 +94,10 @@ Results here.....
 ## Discussion
 
 What problems did you encounter?
-* One of the problems that I encountered was the runtime of my model. Because it took pretty long to run even on GPU (~2-3h/run), it was time-consuming to experiment with different hyperparameters or just tweak the model a bit.
+* One of the problems that I encountered was the runtime of my model. Because it took pretty long to run even on GPU, it was time-consuming to experiment with different hyperparameters or just tweak the model a bit.
 
 Are there next steps you would take if you kept working on the project?
+* If I kept working on this project, I would further tune other hyperparameters that I didn't get to due to time and GPU limits. I would also like to try out different regularization techniques and examine which one has the strongest impact on the model's performance.
 
 How does your approach differ from others? Was that beneficial?
+* I don't know how others approach this problem, but I think my approach probably differs because besides from tuning the hyperparameters, I also mess around with the transformations when loading images. And this has a huge improvement on the model's accuracy as mentioned above.
