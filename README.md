@@ -28,5 +28,7 @@ Results here.....
 
 What problems did you encounter?
 * One of the problems that I encountered was the runtime of my model. Because it took pretty long to run even on GPU (~2-3h/run), it was time-consuming to experiment with different hyperparameters or just tweak the model a bit.
+
 Are there next steps you would take if you kept working on the project?
+
 How does your approach differ from others? Was that beneficial?
