@@ -4,11 +4,11 @@
 
 ## Problem Description
 
-Train a network model to classify/predict bird species.
+Train a network model to classify/predict bird species for the [bird classification Kaggle challenge](https://www.kaggle.com/competitions/birds23sp)
 
 ## Datasets
 
-I used the [Kaggle datasets](https://www.kaggle.com/competitions/birds23sp/data) provided on the challenge website, which include 38562 images (555 classes) for training and 10000 images for testing.
+I used the Kaggle datasets provided on the challenge website, which include 38562 images (555 classes) for training and 10000 images for testing.
 
 ## Pre-existing Work
 
