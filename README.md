@@ -366,7 +366,7 @@ plt.plot(epochs, test_losses,'r-')
 * The graph with lr = 0.01 has the lowest training loss of 0.070 and lowest testing loss of 1.070. But while the training loss continues to decrease, the testing loss doesn’t show much improvement after some iterations. The increasing gap between training and testing loss shows that the model might be overfitting.
 * The graph with lr = 0.001 has the highest training loss of 0.976, showing that the training progresses slower compared to the other two due to its small learning rate making small adjustments to the model’s weights.
 
-I started out with lr = 0.01 before this experiment with an accuracy of 81.2% (from data transformations), so I already used the best learning rate in this case. But since I only train the model for 10 epochs before while this experiment train for 15 epochs, I ran my code 1 again but with 15 epochs and get an 82.85% accuracy after submitting it, showing that the more
+I started out with lr = 0.01 before this experiment with an accuracy of 81.2% (from data transformations), so I already used the best learning rate in this case. But since I only train the model for 10 epochs before while this experiment train for 15 epochs, I ran my code 1 again but with 15 epochs and get an 82.85% accuracy after submitting it.
 
 ## Results
 
