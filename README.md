@@ -5,8 +5,8 @@
 ## Project Walkthrough & Codes
 
 * [Project Video Walkthrough](https://drive.google.com/file/d/1v-8p6JcCCFJAMPZWvyRiJuXC9g1ij4sp/view?usp=sharing)
-* [Code 1](https://drive.google.com/file/d/1o99Yy67VaEarS3ZgMxoowgrItTUV0rUs/view?usp=sharing) for evaluating the real test dataset and outputing the prediction csv file (Only the latest experiment output)
-* [Code 2](https://drive.google.com/file/d/1JE2sgIn-knOtIPmnqv89gYXso3toyavP/view?usp=sharing) for calculating train & test loss (Train/Validation Split) (Only include the latest experiment output)
+* [Code 1](https://colab.research.google.com/drive/1o99Yy67VaEarS3ZgMxoowgrItTUV0rUs) for evaluating the real test dataset and outputing the prediction csv file (Only the latest experiment output)
+* [Code 2](https://colab.research.google.com/drive/1JE2sgIn-knOtIPmnqv89gYXso3toyavP) for calculating train & test loss (Train/Validation Split) (Only include the latest experiment output)
 
 ## Problem Description
 
@@ -392,7 +392,7 @@ Here are some examples of my model predicting the bird species:
 
 Problems I encounter?
 * One of the problems that I encountered was the runtime of my model. Because it took pretty long to run even on GPU, it was time-consuming to experiment with different hyperparameters or just tweak the model a bit. So I wasn't able to experiment with more hyperparameters as I had originally planned.
-* Another problem was splitting the training directory into train and test because since they both use the same train dataset, I can't introduce randomness when applying transformations to the images in [code 2](#project-walkthrough-&-codes) as I've done in [code 1](#project-walkthrough-&-codes) since we don't want randomness in testing.
+* Another problem was splitting the training directory into train and test because since they both use the same train dataset, I can't introduce randomness when applying transformations to the images in [code 2](##-project-walkthrough-&-codes) as I've done in [code 1](##-project-walkthrough-&-codes) since we don't want randomness in testing.
 
 Next steps I would take?
 * If I kept working on this project, I would further tune other hyperparameters that I didn't get to due to time and GPU limits. I would also like to try out different regularization techniques and examine which one has the strongest impact on the model's performance.
