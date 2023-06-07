@@ -197,7 +197,7 @@ test_transforms = transforms.Compose([
 
 ##### 2.2) Resize Images
 
-Resize the images to 224x224 instead of 128x128. This helps increasing the accuracy to 81.2%
+Resize the images to 224x224 instead of 128x128 to avoid losing important features information of the images that the model needs to learn. This helps increasing the accuracy to 81.2%
 
 ```python
 train_transforms = transforms.Compose([
@@ -363,14 +363,14 @@ plt.plot(epochs, test_losses,'r-')
 ![Learning Rates Rerformance](/Learning_Rates_Performance.PNG)
 
 * The graph with lr = 0.1 shows divergent behaviors for the testing loss and is the least stable with the highest testing loss of 2.899 compared to the other two graphs. This shows that the learning rate is a bit too high causing the gradient descent to make big steps and can overshoot the optimum, seeing how the testing losses bounce around in the graph. 
-* The graph with lr = 0.01 has the lowest training loss of 0.070 and lowest testing loss of 1.070. But while the training loss continues to decrease, the testing loss doesn’t show much improvement after some iterations. The increasing gap between training and testing loss shows that the model might be overfit.
+* The graph with lr = 0.01 has the lowest training loss of 0.070 and lowest testing loss of 1.070. But while the training loss continues to decrease, the testing loss doesn’t show much improvement after some iterations. The increasing gap between training and testing loss shows that the model might be overfitting.
 * The graph with lr = 0.001 has the highest training loss of 0.976, showing that the training progresses slower compared to the other two due to its small learning rate making small adjustments to the model’s weights.
 
-I started out with lr = 0.01 before this experiment with an accuracy of 81.2% (from data transformations), so I already used the best learning rate in this case. But since I only train the model for 10 epochs before while this experiment train for 15 epochs, I ran my code 1 again but with 15 epochs and get an 82.85% accuracy after submitting it.
+I started out with lr = 0.01 before this experiment with an accuracy of 81.2% (from data transformations), so I already used the best learning rate in this case. But since I only train the model for 10 epochs before while this experiment train for 15 epochs, I ran my code 1 again but with 15 epochs and get an 82.85% accuracy after submitting it, showing that the more
 
 ## Results
 
-Applying different data transformations when processing the images helps increase the accuracy by aprroximately 10% (from 70.05% to 81.2%). I was suprised at how much improvement to the model's accuracy achieves by applying different data transformations alone. But this makes sense because resizing and normalizing the images better fit them with the inputs expected by the pre-trained model. In terms of learning rates, the results above show that 0.01 performs the best for 15 epochs with an accuracy of 72%. Even though 0.001 shows the best convergence, the gradient descent is slower and it would take more epochs than 15 to reach the optimum/improve its accuracy. Instead of increasing the number of epochs and have longer training runtime (high cost) to improve the accuracy of 0.001, I think it would be better to use regularization techniques like dropout or data augmentation to prevent overfitting when lr = 0.01 and increase its accuracy. Starting out with an accuracy of 70.05%, I was able to improve my model to 82.85% and currently place 7th on the leaderboard through applying different data transformations before training and tuning hyperparameters.
+Applying different data transformations when processing the images helps increase the accuracy by approximately 10% (from 70.05% to 81.2%). I was surprised at how much improvement in the model's accuracy achieves by these transformations alone. But this makes sense because resizing and normalizing the images keep them to a uniform range and better fit them with the inputs expected by the pre-trained model. In terms of learning rates, the results above show that 0.01 performs the best for 15 epochs with an accuracy of 72%. Too high a learning rate can cause the learning to diverge from the optimum while too low will require more epochs and increase computation time. Even though 0.001 shows the best convergence, the gradient descent is slower and it would take more epochs than 15 to reach the optimum/improve its accuracy. Instead of increasing the number of epochs and having longer training runtime (high cost) to improve the accuracy of 0.001, I think it would be better to use regularization techniques like dropout or data augmentation to prevent overfitting when lr = 0.01 and increase its accuracy. Starting out with an accuracy of 70.05%, I was able to improve my model to 82.85% through applying different data transformations before training and tuning hyperparameters.
 
 ### System Demo
 
@@ -392,7 +392,7 @@ Here are some examples of my model predicting the bird species:
 
 Problems I encounter?
 * One of the problems that I encountered was the runtime of my model. Because it took pretty long to run even on GPU, it was time-consuming to experiment with different hyperparameters or just tweak the model a bit. So I wasn't able to experiment with more hyperparameters as I had originally planned.
-* Another problem was splitting the training directory into train and test because since they both use the same train dataset, I can't introduce randomness when applying transformations to the images in [code 2](##-project-walkthrough-&-codes) as I've done in [code 1](##-project-walkthrough-&-codes) since we don't want randomness in testing.
+* Another problem was splitting the training directory into train and test because since they both use the same train dataset, I can't introduce randomness when applying transformations to the images in [code 2](https://colab.research.google.com/drive/1JE2sgIn-knOtIPmnqv89gYXso3toyavP) as I've done in [code 1](https://colab.research.google.com/drive/1o99Yy67VaEarS3ZgMxoowgrItTUV0rUs) since we don't want randomness in testing.
 
 Next steps I would take?
 * If I kept working on this project, I would further tune other hyperparameters that I didn't get to due to time and GPU limits. I would also like to try out different regularization techniques and examine which one has the strongest impact on the model's performance.
