@@ -10,11 +10,11 @@
 
 ## Problem Description
 
-Train a network model to classify/predict bird species for [the bird classification Kaggle challenge](https://www.kaggle.com/competitions/birds23sp)
+Train a network model to classify/predict bird species to the highest accuracy for [the bird classification Kaggle challenge](https://www.kaggle.com/competitions/birds23sp)
 
 ## Datasets
 
-I used the Kaggle datasets provided on the challenge website, which include 38562 images (555 classes) for training and 10000 images for testing.
+I used the Kaggle datasets provided on the challenge website, which include 38562 images (555 classes) for training and 10000 images for testing. Only training directory has labels, which is in names.txt
 
 ## Pre-existing Work
 
@@ -22,7 +22,7 @@ This project builds upon the [iPynb - Transfer Learning to Birds](https://colab.
 
 ## Approach
 
-Using the class tutorial mentioned above as a starting point:
+I'll be using Transfer Learning to accomplish this challenge, which involves using a pretrained model that has been trained on the ImageNet dataset and applying it to this bird challenge dataset. Using the class tutorial mentioned above as a starting point:
 1. Initialize data and choose a pretrained model
 2. Tweak data transformations
 3. Split training dataset into train/split and tune hyperparameters
@@ -173,7 +173,7 @@ train(model, trainloader, epochs=10, lr=.01, print_every=10, checkpoint_path=CHE
 
 Let's start with the changes to see how much my model can improve.
 
-### 2) Data transformations
+### 2) Data Transformations
 
 ##### 2.1) Normalize Images
 
@@ -370,7 +370,9 @@ I started out with lr = 0.01 before this experiment with an accuracy of 81.2% (f
 
 ## Results
 
-In terms of learning rates, the results above show that 0.01 performs the best for 15 epochs with an accuracy of 72%. Even though 0.001 shows the best convergence, the gradient descent is slower and it would take more epochs to reach the optimum/improve its accuracy. Instead of increasing the number of epochs and have longer training runtime (high cost) to improve the accuracy of 0.001, I think it would be better to use regularization techniques like dropout or data augmentation to prevent overfitting when lr = 0.01 and increase its accuracy.   
+Applying different data transformations when processing the images helps increase the accuracy by aprroximately 10% (from 70.05% to 81.2%). I was suprised at how much improvement to the model's accuracy achieves by applying different data transformations alone. But this makes sense because resizing and normalizing the images better fit them with the inputs expected by the pre-trained model.   
+
+In terms of learning rates, the results above show that 0.01 performs the best for 15 epochs with an accuracy of 72%. Even though 0.001 shows the best convergence, the gradient descent is slower and it would take more epochs than 15 to reach the optimum/improve its accuracy. Instead of increasing the number of epochs and have longer training runtime (high cost) to improve the accuracy of 0.001, I think it would be better to use regularization techniques like dropout or data augmentation to prevent overfitting when lr = 0.01 and increase its accuracy.   
 
 Starting out with an accuracy of 70.05%, I was able to improve my model to 82.85% and currently place 7th on the leaderboard through applying different data transformations before training and tuning hyperparameters.
 
@@ -378,17 +380,23 @@ Starting out with an accuracy of 70.05%, I was able to improve my model to 82.85
 
 Here are some examples of my model predicting the bird species:
 
-* First batch --> _%
+* First batch --> 4/5 = 80% correct
 
-* Second batch --> _%
+![1st Batch](/1st_batch.PNG)
 
-* Third batch --> _%
+* Second batch --> 4/5 = 80% correct
+
+![2nd Batch](/2nd_batch.PNG)
+
+* Third batch --> 5/5 = 100% correct
+
+![3rd Batch](/3rd_batch.PNG)
 
 ## Discussion
 
 Problems I encounter?
 * One of the problems that I encountered was the runtime of my model. Because it took pretty long to run even on GPU, it was time-consuming to experiment with different hyperparameters or just tweak the model a bit. So I wasn't able to experiment with more hyperparameters as I had originally planned.
-* Another problem was splitting the train dataset to both train and test because since they both use the same train dataset, I can't introduce randomness when applying transformations to the images in [code 2](Code 2) as I've done in [code 1](Code 1) since we don't want randomness in testing.
+* Another problem was splitting the training directory into train and test because since they both use the same train dataset, I can't introduce randomness when applying transformations to the images in [code 2](#project-walkthrough-&-codes) as I've done in [code 1](#project-walkthrough-&-codes) since we don't want randomness in testing.
 
 Next steps I would take?
 * If I kept working on this project, I would further tune other hyperparameters that I didn't get to due to time and GPU limits. I would also like to try out different regularization techniques and examine which one has the strongest impact on the model's performance.
