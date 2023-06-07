@@ -4,9 +4,9 @@
 
 ## Project Walkthrough & Codes
 
-* [Project Video Walkthrough]()
-* [Code 1]() for evaluating the real test dataset and outputing the prediction csv file
-* [Code 2]() for calculating train & test loss (Train/Validation Split)
+* [Project Video Walkthrough](https://drive.google.com/file/d/1v-8p6JcCCFJAMPZWvyRiJuXC9g1ij4sp/view?usp=sharing)
+* [Code 1](https://drive.google.com/file/d/1o99Yy67VaEarS3ZgMxoowgrItTUV0rUs/view?usp=sharing) for evaluating the real test dataset and outputing the prediction csv file (Only the latest experiment output)
+* [Code 2](https://drive.google.com/file/d/1JE2sgIn-knOtIPmnqv89gYXso3toyavP/view?usp=sharing) for calculating train & test loss (Train/Validation Split) (Only include the latest experiment output)
 
 ## Problem Description
 
@@ -370,11 +370,7 @@ I started out with lr = 0.01 before this experiment with an accuracy of 81.2% (f
 
 ## Results
 
-Applying different data transformations when processing the images helps increase the accuracy by aprroximately 10% (from 70.05% to 81.2%). I was suprised at how much improvement to the model's accuracy achieves by applying different data transformations alone. But this makes sense because resizing and normalizing the images better fit them with the inputs expected by the pre-trained model.   
-
-In terms of learning rates, the results above show that 0.01 performs the best for 15 epochs with an accuracy of 72%. Even though 0.001 shows the best convergence, the gradient descent is slower and it would take more epochs than 15 to reach the optimum/improve its accuracy. Instead of increasing the number of epochs and have longer training runtime (high cost) to improve the accuracy of 0.001, I think it would be better to use regularization techniques like dropout or data augmentation to prevent overfitting when lr = 0.01 and increase its accuracy.   
-
-Starting out with an accuracy of 70.05%, I was able to improve my model to 82.85% and currently place 7th on the leaderboard through applying different data transformations before training and tuning hyperparameters.
+Applying different data transformations when processing the images helps increase the accuracy by aprroximately 10% (from 70.05% to 81.2%). I was suprised at how much improvement to the model's accuracy achieves by applying different data transformations alone. But this makes sense because resizing and normalizing the images better fit them with the inputs expected by the pre-trained model. In terms of learning rates, the results above show that 0.01 performs the best for 15 epochs with an accuracy of 72%. Even though 0.001 shows the best convergence, the gradient descent is slower and it would take more epochs than 15 to reach the optimum/improve its accuracy. Instead of increasing the number of epochs and have longer training runtime (high cost) to improve the accuracy of 0.001, I think it would be better to use regularization techniques like dropout or data augmentation to prevent overfitting when lr = 0.01 and increase its accuracy. Starting out with an accuracy of 70.05%, I was able to improve my model to 82.85% and currently place 7th on the leaderboard through applying different data transformations before training and tuning hyperparameters.
 
 ### System Demo
 
